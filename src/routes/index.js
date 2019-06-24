@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/upload", (req, res) => {
-  res.send("Form Upload");
+  res.render("upload");
 });
 
 router.post("/upload", (req, res) => {

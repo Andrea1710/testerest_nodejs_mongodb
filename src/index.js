@@ -3,9 +3,11 @@ const path = require("path");
 const morgan = require("morgan");
 const multer = require("multer");
 const uuid = require("uuid/v4");
+const { format } = require("timeago.js");
 
 // Initializations
 const app = express();
+require("./database");
 
 // Settings
 app.set("port", process.env.PORT || 3000);
@@ -27,11 +29,16 @@ app.use(
 );
 
 // Global Variables
+app.use((req, res, next) => {
+  app.locals.format = format;
+  next();
+});
 
 // Routes
 app.use(require("./routes"));
 
 // Static Files
+app.use(express.static(path.join(__dirname, "public"))); // folder public can be accessed from Browser
 
 // Starting Server
 app.listen(3000, () => console.log(`Server on port ${app.get("port")}`));

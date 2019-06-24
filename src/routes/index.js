@@ -3,8 +3,9 @@ const router = Router();
 
 const Image = require("../models/Image");
 
-router.get("/", (req, res) => {
-  res.send("Index Page");
+router.get("/", async (req, res) => {
+  const images = await Image.find();
+  res.render("index", { images: images });
 });
 
 router.get("/upload", (req, res) => {

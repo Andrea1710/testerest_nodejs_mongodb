@@ -10,7 +10,19 @@ After cloning the Repository, run the command:
 npm install
 ```
 
+and then run the command:
+
+```bash
+npm run dev
+```
+
+to start the Server.
+
 ## Usage
+
+Visit the page http://localhost:3000/ to navigate the Testerest App.
+
+Here, you can see the Initial page, Upload Images or Delete them, faking a Pinterest App.
 
 ## Author
 
